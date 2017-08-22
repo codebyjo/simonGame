@@ -1,7 +1,63 @@
-
+let computerPattern = [];
+let userPattern = [];
+let buttonOption = ['one', 'two', 'three', 'four'];
+let gameActive = false;
+let attempts = 0;
 
 
 //-- start game
+$('#start').click(function () {
+  
+  computerPattern.push = Math.floor(Math.random() * buttonOption.length);
+  
+  //play the sound and light the button
+  
+  gameActive = setInterval( function() {
+    
+    if (computerPattern.length <= userPattern.length) {
+      if (computerPattern.toString() === userPattern.toString()) {
+        computerPattern.push = Math.floor(Math.random() * buttonOption.length);
+      } else {
+      	//flash wrong and clear userPattern
+        userPattern = [];
+      }
+    }
+    
+  } , 1000);
+  
+});
+
+// lighting individual buttons
+
+function lightUpLights(id) {
+  $('$' + id).addClass(changeColour);
+  $('$audio' + id).play();
+};
+
+function displayPattern() {
+};
+
+
+//user clicks sequence
+
+$('#one').click(function () {
+	userPattern.push(1);
+});
+
+$('#two').click(function () {
+		userPattern.push(2);
+});
+
+$('#three').click(function () {
+		userPattern.push(3);
+});
+
+$('#four').click(function () {
+	userPattern.push(4);
+});
+
+// listener for start button will start the game.
+
 
 //-- start round
 //I am presented with a random series of button presses.
@@ -20,8 +76,6 @@
 
 //-- if number of clicks is less than length of sequence, continue waiting for player clicks
 
-//-- restart button
-//If I want to restart, I can hit a button to do so, and the game will return to a single step.
 
 //win when:
 //I can win the game by getting a series of 20 steps correct. I am notified of my victory, then the game starts over.
