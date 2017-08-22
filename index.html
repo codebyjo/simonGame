@@ -35,38 +35,42 @@
 <body>
 
 
-
-
-
-
+    <!-- Content -->
     <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <p>
-            <div id="one" href="#" class="btn btn-sq-lg btn-primary dark1">
-                <i class="fa fa-music fa-5x"></i>
-            </div>
-            <div id="two" href="#" class="btn btn-sq-lg btn-success dark2">
-              <i class="fa fa-music fa-5x"></i>
-            </div>
-            <div id="three" class="btn btn-sq-lg btn-warning dark3">
-              <i class="fa fa-music fa-5x"></i>
-            </div>
-            <div id="four" class="btn btn-sq-lg btn-danger dark4">
-              <i class="fa fa-music fa-5x"></i>
-            </div>
-          </p>
-        </div>
-  </div>
 
-  <div class="row text-center">
+      <h1 class="my-4 text-center text-lg-left">Simon Game</h1>
+
+      <div class="row text-center text-lg-left">
+
+        <div id="one" class="col-lg-3 col-md-4 col-xs-6 btn btn-sq-lg btn-primary dark1">
+            <i class="fa fa-music fa-5x"></i>
+        </div>
+        <div id="two" class="col-lg-3 col-md-4 col-xs-6 btn btn-sq-lg btn-success dark2">
+            <i class="fa fa-music fa-5x"></i>
+          </a>
+        </div>
+        <div id="three" class="col-lg-3 col-md-4 col-xs-6 btn btn-sq-lg btn-warning dark3">
+            <i class="fa fa-music fa-5x"></i>
+          </a>
+        </div>
+        <div id="four" class="col-lg-3 col-md-4 col-xs-6 btn btn-sq-lg btn-danger dark4">
+            <i class="fa fa-music fa-5x"></i>
+          </a>
+        </div>
+        
+      </div>
+
+
+
+      <div class="row text-center">
         <div>count</div>
         <form id="count">  </form>
        <button id="start" class="bt">start</button>
        <button id="strict" class="bt">strict</button>
+       <div class="row" id="onOff"></div>
    </div>
-  
-  
+
+    
     <audio id="audio1">
         <source src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3" type="audio/mpeg">
     </audio>
@@ -86,8 +90,19 @@
       </div>
     </footer>
 
-  </div>
+
+    </div>
   <!--container-->
+
+
+
+  
+
+
+   
+
+
+
 
   <!-- Bootstrap Core JavaScript -->
   <script src="js/bootstrap.min.js"></script>
