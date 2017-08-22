@@ -1,4 +1,5 @@
 let computerPattern = [];
+let playedPattern = [];
 let userPattern = [];
 let buttonOption = ['one', 'two', 'three', 'four'];
 let gameActive = false;
@@ -11,6 +12,7 @@ $('#start').click(function () {
   computerPattern.push = Math.floor(Math.random() * buttonOption.length);
   
   //play the sound and light the button
+  displayPattern();
   
   gameActive = setInterval( function() {
     
@@ -18,7 +20,7 @@ $('#start').click(function () {
       if (computerPattern.toString() === userPattern.toString()) {
         computerPattern.push = Math.floor(Math.random() * buttonOption.length);
       } else {
-      	//flash wrong and clear userPattern
+        //flash wrong and clear userPattern
         userPattern = [];
       }
     }
@@ -28,32 +30,51 @@ $('#start').click(function () {
 });
 
 // lighting individual buttons
-
-function lightUpLights(id) {
-  $('$' + id).addClass(changeColour);
-  $('$audio' + id).play();
+function displayPattern() {// this is for the computer
+  
+  //disable buttons so we can play pattern.
+  
+  for (let i = 0; i < computerPattern.length; i++) {
+    
+    setTimeout(function () {
+    
+      $('#' + computerPattern[i]).addClass(changeColour);
+      $('#audio-' + computerPattern[i]).play();
+      playedPattern.push(computerPattern[i]);
+    
+    }, 1000 * i);
+  }
+  
+  //if playedPattern matches computerPattern, that means all the lights have been played and buttons can now be pressed.
+  
 };
 
-function displayPattern() {
+function lightUpLights(id) { //when the user clicks
+  $('$' + id).addClass(changeColour);
+  $('$audio-' + id).play();
 };
 
 
 //user clicks sequence
 
 $('#one').click(function () {
-	userPattern.push(1);
+  lightUpLights('one');
+  userPattern.push('one');
 });
 
 $('#two').click(function () {
-		userPattern.push(2);
+  lightUpLights('two');
+  userPattern.push('two');
 });
 
 $('#three').click(function () {
-		userPattern.push(3);
+  lightUpLights('three');
+  userPattern.push('three');
 });
 
 $('#four').click(function () {
-	userPattern.push(4);
+  lightUpLights('four');
+  userPattern.push('four');
 });
 
 // listener for start button will start the game.
