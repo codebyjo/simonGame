@@ -38,25 +38,41 @@
     <!-- Content -->
     <div class="container">
 
-      <h1 class="my-4 text-center text-lg-left">Simon Game</h1>
+      <h1 class="my-4 text-center">Simon Game</h1>
 
-      <div class="row text-center text-lg-left">
+        <div class="center">
+              <div class="circle">
 
-        <div id="one" class="col-lg-3 col-md-4 col-xs-6 btn btn-sq-lg btn-primary dark1">
-            <i class="fa fa-music fa-5x"></i>
-        </div>
-        <div id="two" class="col-lg-3 col-md-4 col-xs-6 btn btn-sq-lg btn-success dark2">
-            <i class="fa fa-music fa-5x"></i>
-          </a>
-        </div>
-        <div id="three" class="col-lg-3 col-md-4 col-xs-6 btn btn-sq-lg btn-warning dark3">
-            <i class="fa fa-music fa-5x"></i>
-          </a>
-        </div>
-        <div id="four" class="col-lg-3 col-md-4 col-xs-6 btn btn-sq-lg btn-danger dark4">
-            <i class="fa fa-music fa-5x"></i>
-          </a>
-        </div>
+                <div class="innerCircle">
+
+                    <div id="one" class="col-lg-3 col-md-4 col-xs-6 btn btn-sq-lg btn-primary dark1">
+                        <i class="fa fa-music fa-5x"></i>
+                        <audio id="audio-one">
+                          <source src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3" type="audio/mpeg">
+                        </audio>
+                    </div>
+                    <div id="two" class="col-lg-3 col-md-4 col-xs-6 btn btn-sq-lg btn-success dark2">
+                        <i class="fa fa-music fa-5x"></i>
+                            <audio id="audio-two">
+                                <source src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3" type="audio/mpeg">
+                            </audio>
+                    </div>
+                    <div id="three" class="col-lg-3 col-md-4 col-xs-6 btn btn-sq-lg btn-warning dark3">
+                        <i class="fa fa-music fa-5x"></i>
+                        <audio id="audio-three">
+                            <source src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3" type="audio/mpeg">
+                        </audio>
+                    </div>
+                    <div id="four" class="col-lg-3 col-md-4 col-xs-6 btn btn-sq-lg btn-danger dark4">
+                        <i class="fa fa-music fa-5x"></i>
+                          <audio id="audio-four">
+                            <source src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3" type="audio/mpeg">
+                          </audio>
+                    </div>
+                </div><!--innerCicle-->
+
+               </div><!--circle-->
+         </div><!--center-->
         
       </div>
 
@@ -68,21 +84,12 @@
        <button id="start" class="bt">start</button>
        <button id="strict" class="bt">strict</button>
        <div class="row" id="onOff"></div>
-   </div>
+
 
     
-    <audio id="audio-one">
-        <source src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3" type="audio/mpeg">
-    </audio>
-    <audio id="audio-two">
-        <source src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3" type="audio/mpeg">
-    </audio>
-    <audio id="audio-three">
-        <source src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3" type="audio/mpeg">
-    </audio>
-    <audio id="audio-four">
-        <source src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3" type="audio/mpeg">
-    </audio>
+
+
+
 
 
     <footer>
