@@ -35,36 +35,42 @@
 <body>
 
 
-    <!-- Content -->
+    <!-- Title -->
     <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h1 class="mt-5">Simon Game</h1>
+          <p class="lead">A project for Free Code Camp</p>
+        </div>
+      </div>
+    </div>
 
-      <h1 class="my-4 text-center">Simon Game</h1>
+ <!-- simon game area -->
+
+    <div class="container">
 
         <div class="center">
               <div class="circle">
 
                 <div class="innerCircle">
 
-                    <div id="one" class="col-lg-3 col-md-4 col-xs-6 btn btn-sq-lg btn-primary dark1">
-                        <i class="fa fa-music fa-5x"></i>
+
+                    <div id="one" class="col-lg-3 col-md-4 col-xs-6 btn btn-sq-lg dark1">
                         <audio id="audio-one">
                           <source src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3" type="audio/mpeg">
                         </audio>
                     </div>
-                    <div id="two" class="col-lg-3 col-md-4 col-xs-6 btn btn-sq-lg btn-success dark2">
-                        <i class="fa fa-music fa-5x"></i>
+                    <div id="two" class="col-lg-3 col-md-4 col-xs-6 btn btn-sq-lg dark2">
                             <audio id="audio-two">
                                 <source src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3" type="audio/mpeg">
                             </audio>
                     </div>
-                    <div id="three" class="col-lg-3 col-md-4 col-xs-6 btn btn-sq-lg btn-warning dark3">
-                        <i class="fa fa-music fa-5x"></i>
+                    <div id="three" class="col-lg-3 col-md-4 col-xs-6 btn btn-sq-lg dark3">
                         <audio id="audio-three">
                             <source src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3" type="audio/mpeg">
                         </audio>
                     </div>
-                    <div id="four" class="col-lg-3 col-md-4 col-xs-6 btn btn-sq-lg btn-danger dark4">
-                        <i class="fa fa-music fa-5x"></i>
+                    <div id="four" class="col-lg-3 col-md-4 col-xs-6 btn btn-sq-lg dark4">
                           <audio id="audio-four">
                             <source src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3" type="audio/mpeg">
                           </audio>
@@ -74,40 +80,28 @@
                </div><!--circle-->
          </div><!--center-->
         
-      </div>
+      </div><!--container-->
 
 
-
+  <div class="container">
       <div class="row text-center">
         <div>count</div>
         <form id="count">  </form>
-       <button id="start" class="bt">start</button>
-       <button id="strict" class="bt">strict</button>
+       <button type="button" id="start" class="btn btn-secondary btn-lg">start</button>
+       <button type="button" id="strict" class="btn btn-secondary btn-lg">strict</button>
        <div class="row" id="onOff"></div>
+
+  </div>
 
 
     
 
-
-
-
-
-    <footer>
-      <div class="row">Made by: <a href="https://www.freecodecamp.com/eagarcia8">Eduardo Garcia</a> &amp; <a href="https://www.freecodecamp.com/codebyjo">Joanne Dang</a>
+      <div class="container">
+           <footer class="py-5 bg-dark">
+                <p class="m-0 text-center text-white">Made by: <a href="https://www.freecodecamp.com/eagarcia8">Eduardo Garcia</a> &amp; <a href="https://www.freecodecamp.com/codebyjo">Joanne Dang</a></p>
+          </footer>
       </div>
-    </footer>
-
-
-    </div>
-  <!--container-->
-
-
-
-  
-
-
-   
-
+      <!-- /.container -->
 
 
 

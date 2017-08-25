@@ -22,72 +22,77 @@ input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}b
 	width: 50%;
 }
 
+
 .circle {
-
-}
-
-.innerCircle {
  
   margin: auto;
-  background-color: white;
+  background-color: #333;
   border-radius: 50%;
   height: 450px;
   width: 450px;
-  padding: 30px;
+  padding: 10px;
   overflow: hidden;
   position: relative;
-  border: 10px solid #333;
+  border: 15px solid #333;
  
 }
+
+/* top right */
 
 #one {
  
   position: absolute;
   background-color: red;
   width: 50%;
-  height: 45%;
-  left: 55%;
+  height: 48%;
+  left: 50%;
   right: 0%;
   bottom: 50%;
   top: 0%;
  
 }
+
+/* top left */
  
 #two {
  
   position: absolute;
   background-color: green;
-  width: 45%;
-  height: 45%;
+  width: 48%;
+  height: 48%;
   left: 0%;
-  right: 45%;
+  right: 48%;
   bottom: 50%;
   top: 0%;
  
 }
  
+/* bottom left */
+
 #three {
  
   position: absolute;
   background-color: yellow;
-  width: 45%;
+  width: 48%;
   height: 50%;
   left: 0;
   right: 50%;
   bottom: 0%;
-  top: 55%;
+  top: 50%;
  
 }
- 
+
+/* bottom right */
+
 #four {
  
   position: absolute;
   background-color: blue;
   width: 50%;
   height: 50%;
-  left: 55%;
+  left: 50%;
   right: 0%;
   bottom: 0%;
-  top: 55%;
+  top: 50%;
  
 }
