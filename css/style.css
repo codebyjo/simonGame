@@ -33,7 +33,7 @@ input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}b
   padding: 10px;
   overflow: hidden;
   position: relative;
-  border: 15px solid #333;
+  border: 15px solid #27ae60;
  
 }
 
@@ -84,6 +84,7 @@ input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}b
 
 /* bottom right */
 
+
 #four {
  
   position: absolute;
@@ -95,4 +96,16 @@ input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}b
   bottom: 0%;
   top: 50%;
  
+}
+
+#blocker {
+  display: block;
+  border-radius: 225px;
+  position: absolute;
+  margin-top: 0;
+  margin-left: 60px;
+  width: 450px;
+  height: 450px;
+  border: solid #e74c3c 15px;
+  z-index: 100;
 }

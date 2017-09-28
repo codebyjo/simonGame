@@ -9,105 +9,175 @@ let buttonOption = [
   ['one', 'red', '#E77471', audioone],
   ['two', 'green', 'lime', audiotwo],
   ['three', 'yellow', '#ffffcc', audiothree],
-	['four', 'blue', 'lightblue', audiofour]
+  ['four', 'blue', 'lightblue', audiofour]
 ];
 let gameActive = false;
 let attempts = 0;
+let displayPatternOnce = true;
+let strictMode = false;
+
+$('#strict').click(function () {
+  
+  if (strictMode) {
+    strictMode = false;
+    $('#strict').css('background-color', 'rgb(221, 221, 221)');
+    $('#strict').css('color', '#000000');
+  } else {
+    strictMode = true;
+    $('#strict').css('background-color', '#2980b9');
+    $('#strict').css('color', '#FFFFFF');
+  }
+});
 
 //-- start game
 $('#start').click(function () {
+  
+  $('#start').css('background-color', '#2980b9');
+  $('#start').css('color', '#FFFFFF');
+  $('#start').text('stop');
+  
+  if (gameActive != false) {
+    userPattern = [];
+    computerPattern = [];
+    clearInterval(gameActive);
+    gameActive = false;
+    $('#start').css('background-color', 'rgb(221, 221, 221)');
+    $('#start').css('color', '#000000');
+    $('#start').text('start');
+    return;
+  }
 
   console.log("start button pressed!");
 
-  let randomNumber = Math.floor(Math.random() * buttonOption.length)
+  let randomNumber = buttonOption[Math.floor(Math.random() * buttonOption.length)][0];
 
-  computerPattern.push( randomNumber );
+  computerPattern.push(randomNumber);
+  $('#pattern-count').text(computerPattern.length);
 
-  console.log(computerPattern[0], randomNumber);
+  console.log("computer pattern and random number: ", computerPattern[0], randomNumber);
 
   //play the sound and light the button
-  displayPattern();
+  displayPattern(true);
 
-  gameActive = setInterval( function() {
-
-    console.log(computerPattern, userPattern);
+  gameActive = setInterval(function () {
+    
+    console.log("array lengths: ", computerPattern.length, "user:", userPattern.length);
 
     if (computerPattern.length > userPattern.length) {
-
-    }
-    else if (computerPattern.length <= userPattern.length) {
-
-      if (computerPattern.toString() === userPattern.toString()) {
-        computerPattern.push = Math.floor(Math.random() * buttonOption.length);
+      //displayComputerPatternOnce = false;
+    } else if (computerPattern.length <= userPattern.length) {
+      
+      console.log("Strings: ", computerPattern.toString(), "User: ", userPattern.toString());
+      
+      if ( computerPattern.toString() == userPattern.toString() ) {
+        let randomNumberSecond = buttonOption[Math.floor(Math.random() * buttonOption.length)][0];
+        userPattern = [];
+        computerPattern.push(randomNumberSecond);
         displayPattern();
+        $('#pattern-count').text(computerPattern.length);
       } else {
         //flash wrong and clear userPattern
         userPattern = [];
-        console.log("YOU LOST!");
+        if (strictMode) {
+          computerPattern = [];
+          $('#pattern-count').text(computerPattern.length);
+          clearInterval(gameActive);
+          gameActive = false;
+        }
+        displayPattern();
+        console.log("YOU LOST!", userPattern, computerPattern);
       }
 
     }
 
-  } , 1000);
+  }, 1000);
 
 });
 
 // lighting individual buttons
-function displayPattern() {// this is for the computer
+function displayPattern() { // this is for the computer
 
   //disable buttons so we can play pattern.
+  $('#blocker').css('z-index', '10');
 
   let e;
 
-  for (let i = 0; i < computerPattern.length + 1; i++) {
+  for (let i = 0; i < computerPattern.length; i++) {
 
     setTimeout(function () {
+      
+      console.log("Computer pattern before activating button: ", computerPattern[i]);
 
       if (computerPattern[i] === 'one') {
-      e = 0;
+        console.log("one!")
+        e = 0;
       } else if (computerPattern[i] === 'two') {
-      e = 1;
+        console.log("two!")
+        e = 1;
       } else if (computerPattern[i] === 'three') {
-      e = 2;
+        console.log("three!")
+        e = 2;
       } else if (computerPattern[i] === 'four') {
-      e = 3;
+        console.log("four!")
+        e = 3;
+      }
+      
+      console.log("e: ", e);
+      
+      activateButton(buttonOption[e][0], buttonOption[e][1], buttonOption[e][2], buttonOption[e][3], false);
+      
+      if (computerPattern.length - 1 == i) {
+        setTimeout(function() {
+          $('#blocker').css('z-index', '-10');
+        }, 1000);
       }
 
-
-      activateButton(buttonOption[e][0], buttonOption[e][1], buttonOption[e][2], buttonOption[e][3]);
-
-      playedPattern.push(computerPattern[i]);
-
-    }, 2000 * i);
+    }, 750 * (i + 1));
   }
 
   //if playedPattern matches computerPattern, that means all the lights have been played and buttons can now be pressed.
+  
+  
 
 };
 
-function activateButton(selector, defaultColor, activeColor, sound) {
+function activateButton(selector, defaultColor, activeColor, sound, user) {
 
-	sound.play();
+  sound.play();
 
   $('#' + selector).css('background-color', activeColor);
 
   setTimeout(function () {
-  	$('#' + selector).css('background-color', defaultColor);
+    $('#' + selector).css('background-color', defaultColor);
   }, 500);
-
-  userPattern.push(selector);
+  
+  if (user) {
+    userPattern.push(selector);
+  }
 
 }
 
 //user clicks sequence
 
-$('#one').click(function () { activateButton(buttonOption[0][0], buttonOption[0][1], buttonOption[0][2], buttonOption[0][3]); console.log(userPattern); });
+$('#one').click(function () {
+  activateButton(buttonOption[0][0], buttonOption[0][1], buttonOption[0][2], buttonOption[0][3], true);
+  console.log(userPattern);
+});
 
-$('#two').click(function () { activateButton(buttonOption[1][0], buttonOption[1][1], buttonOption[1][2], buttonOption[1][3]); console.log(userPattern); });
+$('#two').click(function () {
+  activateButton(buttonOption[1][0], buttonOption[1][1], buttonOption[1][2], buttonOption[1][3], true);
+  console.log(userPattern);
+});
 
-$('#three').click(function () { activateButton(buttonOption[2][0], buttonOption[2][1], buttonOption[2][2], buttonOption[2][3]); console.log(userPattern); });
+$('#three').click(function () {
+  activateButton(buttonOption[2][0], buttonOption[2][1], buttonOption[2][2], buttonOption[2][3], true);
+  console.log(userPattern);
+});
 
-$('#four').click(function () { activateButton(buttonOption[3][0], buttonOption[3][1], buttonOption[3][2], buttonOption[3][3]); console.log(userPattern); });
+$('#four').click(function () {
+  activateButton(buttonOption[3][0], buttonOption[3][1], buttonOption[3][2], buttonOption[3][3], true);
+  console.log(userPattern);
+});
 
 
 
